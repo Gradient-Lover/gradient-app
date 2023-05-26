@@ -5,9 +5,7 @@
   border-radius: 5px;
   border: 1px solid rosybrown;
 }
-button{
-  background: linear-gradient(to right, #fff700 , #ff0000);
-}
+
 input{
   width: 100px;
   min-width: 100%;
@@ -24,4 +22,30 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%,
 .color{
   display: flex;
   justify-content: space-between;
+}
+
+.control{
+  background: black;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  width: 20%;
+  transition: 1s;
+}
+
+.color-input{
+  border:solid 1px white;
+  opacity:0.2;
+  transition:1s
+}
+
+.color-input:hover{
+  border:solid 1px white;
+  opacity:1;
+}
+
+.control:hover{
+  background: white;
+  color: black;
+
 }

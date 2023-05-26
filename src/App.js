@@ -3,19 +3,18 @@ import { useState } from "react";
 export default function App() {
   const [leftColor, setLeftColor] = useState("#fff700");
   const [rightColor, setRightColor] = useState("#ff0000");
-
-  const [radialGradient, setRadialGradient] = useState(
-    `radial-gradient(${leftColor} , ${rightColor})`
-  );
-  const [linearGradient, setLinearGradient] = useState(
-    `linear-gradient(to right , ${leftColor} , ${rightColor})`
-  );
-  const [gradientType, setGradientType] = useState("radial");
+  const [gradientType, setGradientType] = useState("linear");
 
   const copyCode = () => {
-    navigator.clipboard.writeText(
-      `linear-gradient(to right, ${leftColor} , ${rightColor})`
-    );
+    if (gradientType == "linear") {
+      navigator.clipboard.writeText(
+        `linear-gradient(to right, ${leftColor} , ${rightColor})`
+      );
+    } else {
+      navigator.clipboard.writeText(
+        `radial-gradient(${leftColor} , ${rightColor})`
+      );
+    }
   };
 
   return (
@@ -24,25 +23,21 @@ export default function App() {
         className="container"
         style={{
           background:
-            gradientType === "radial" ? radialGradient : linearGradient,
+            gradientType === "radial"
+              ? `radial-gradient(${leftColor} , ${rightColor})`
+              : `linear-gradient(to right, ${leftColor} , ${rightColor})`,
           height: "90vh",
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
         }}
       >
-        <div className="left-color">
+        <div className="left-color color-input">
           <input
             value={leftColor}
             onChange={(event) => {
               console.log(event.target.value);
               setLeftColor(event.target.value);
-              setLinearGradient(
-                `linear-gradient(to right, ${leftColor} , ${rightColor})`
-              );
-              setRadialGradient(
-                `raidal-gradient(${leftColor} , ${rightColor})`
-              );
             }}
             type="color"
           />
@@ -59,17 +54,11 @@ export default function App() {
           </div>
         </div>
 
-        <div className="right-color">
+        <div className="right-color color-input">
           <input
             value={rightColor}
             onChange={(event) => {
               setRightColor(event.target.value);
-              setLinearGradient(
-                `linear-gradient(to right, ${leftColor} , ${rightColor})`
-              );
-              setRadialGradient(
-                `raidal-gradient(${leftColor} , ${rightColor})`
-              );
             }}
             type="color"
           />
@@ -91,14 +80,19 @@ export default function App() {
 
       <div style={{ textAlign: "center" }} className="panel">
         <button
+          className="control"
           onClick={() => {
             setGradientType("linear");
           }}
         >
           Linear Gradient
         </button>
-        <button onClick={copyCode}> Copy Gradient code </button>
+        <button className="control" onClick={copyCode}>
+          {" "}
+          Copy Gradient code{" "}
+        </button>
         <button
+          className="control"
           onClick={() => {
             setGradientType("radial");
           }}
