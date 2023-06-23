@@ -19,6 +19,7 @@ export default function App() {
 
   const handleNotes = (event) => {
     setNotes(event.target.value);
+
     saveNotes();
   };
 
@@ -74,19 +75,24 @@ export default function App() {
             <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable border-0">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h1 className="modal-title fs-5" id="exampleModalLabel">
-                    Favourites : Copy and paste your fav gradient / colour here!
+                  <h1 className="modal-title fs-5 p-3" id="exampleModalLabel">
+                    Favourites : <br />
+                    Copy and paste your fav gradient / colour(s) here!
                   </h1>
 
                   <button
                     type="button"
-                    className="btn-close"
+                    className="btn-close position-absolute top-0 end-0 p-3"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   />
                 </div>
                 <div className="modal-body">
-                  <textarea value={notes} onChange={handleNotes} class="area" />
+                  <textarea
+                    value={notes}
+                    onChange={handleNotes}
+                    class="area p-2"
+                  />
                 </div>
                 <div className="modal-footer">
                   <button
