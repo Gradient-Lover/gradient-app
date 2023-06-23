@@ -1,9 +1,26 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function App() {
   const [leftColor, setLeftColor] = useState("#fff700");
   const [rightColor, setRightColor] = useState("#ff0000");
   const [gradientType, setGradientType] = useState("linear");
+  const [notes, setNotes] = useState("");
+
+  const getNotes = () => {
+    let savedNotes = localStorage.getItem("notes");
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  };
+
+  const saveNotes = () => {
+    localStorage.setItem("notes", notes);
+  };
+
+  const handleNotes = (event) => {
+    setNotes(event.target.value);
+    saveNotes();
+  };
 
   const copyCode = () => {
     if (gradientType == "linear") {
@@ -16,6 +33,10 @@ export default function App() {
       );
     }
   };
+
+  useEffect(() => {
+    getNotes();
+  }, []);
 
   return (
     <div className="App">
@@ -32,6 +53,55 @@ export default function App() {
           alignItems: "center",
         }}
       >
+        <>
+          {/* Button trigger modal */}
+          <button
+            type="button"
+            className="control btn btn-primary position-absolute top-0 end-0 mt-5 me-5"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            ❤
+          </button>
+          {/* Modal */}
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex={-1}
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable border-0">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="exampleModalLabel">
+                    Favourites : Copy and paste your fav gradient / colour here!
+                  </h1>
+
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  />
+                </div>
+                <div className="modal-body">
+                  <textarea value={notes} onChange={handleNotes} class="area" />
+                </div>
+                <div className="modal-footer">
+                  <button
+                    onClick={saveNotes}
+                    type="button"
+                    className="btn btn-dark w-25"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+
         <div className="left-color color-input">
           <input
             value={leftColor}
