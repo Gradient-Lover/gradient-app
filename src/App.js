@@ -48,7 +48,7 @@ export default function App() {
             gradientType === "radial"
               ? `radial-gradient(${leftColor} , ${rightColor})`
               : `linear-gradient(to right, ${leftColor} , ${rightColor})`,
-          height: "90vh",
+          height: "89vh",
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
@@ -58,7 +58,7 @@ export default function App() {
           {/* Button trigger modal */}
           <button
             type="button"
-            className="control btn btn-primary position-absolute top-0 end-0 mt-5 me-5"
+            className="control profile-button btn btn-primary position-absolute top-0 end-0 mt-5"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >

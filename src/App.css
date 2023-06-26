@@ -62,3 +62,7 @@ button{
   text-align: center;
   font-family: 'Playfair Display', serif;
 }
+
+.profile-button{
+  margin-right: 80px;
+}
