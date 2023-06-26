@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/gradient-app/static/css/main.99b6466c.css",
-    "main.js": "/gradient-app/static/js/main.bd524086.js",
+    "main.css": "/gradient-app/static/css/main.acc0a184.css",
+    "main.js": "/gradient-app/static/js/main.3a3ef44b.js",
     "static/js/787.67294152.chunk.js": "/gradient-app/static/js/787.67294152.chunk.js",
     "index.html": "/gradient-app/index.html",
-    "main.99b6466c.css.map": "/gradient-app/static/css/main.99b6466c.css.map",
-    "main.bd524086.js.map": "/gradient-app/static/js/main.bd524086.js.map",
+    "main.acc0a184.css.map": "/gradient-app/static/css/main.acc0a184.css.map",
+    "main.3a3ef44b.js.map": "/gradient-app/static/js/main.3a3ef44b.js.map",
     "787.67294152.chunk.js.map": "/gradient-app/static/js/787.67294152.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99b6466c.css",
-    "static/js/main.bd524086.js"
+    "static/css/main.acc0a184.css",
+    "static/js/main.3a3ef44b.js"
   ]
 }
