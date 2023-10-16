@@ -14,8 +14,4 @@ Copy hex codes of individual colors and the gradient's code.
 
 ## Contributing
 
-Contributions are always welcome!
-
-## Mentor
-
-- [@visheshpandey](https://github.com/Vishesh-Pandey)
+Contributions are appreciated as they help to improve the project for everyone.
